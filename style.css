@@ -29,6 +29,9 @@
 .big {
   font-size: calc(18rem / 16);
 }
+.small {
+  font-size: 1rem;
+}
 
 body {
   font-family: sans-serif;
@@ -329,6 +332,10 @@ header {
   padding: 0;
 }
 
+.more-cards {
+  display: none;
+}
+
 .subscribe {
   display: flex;
   flex-direction: column;
@@ -346,7 +353,7 @@ header {
 
   form {
     display: flex;
-    gap: 5px;
+    gap: 16px;
 
     input,
     button {
@@ -375,14 +382,16 @@ header {
     padding: 0 2rem;
   }
 }
-footer {
+.footer-main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   padding: 4rem 2rem;
-
+  font-family: 'Raleway', serif;
+}
+footer {
   .icons {
     display: flex;
     width: 50%;
@@ -405,7 +414,6 @@ footer {
 }
 .copy {
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 menu {
@@ -416,6 +424,7 @@ menu {
   a {
     font-size: 1rem;
     text-decoration: none;
+    color: black;
   }
 }
 .footer-menu {
@@ -497,11 +506,20 @@ menu {
     }
   }
 
+  .popular {
+    margin-bottom: 8rem;
+  }
+
   .cards {
     @media screen and (min-width: 64rem) {
       display: flex;
       justify-content: space-between;
       gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .more-cards {
+      display: block;
     }
 
     .card {
@@ -511,6 +529,61 @@ menu {
         font-size: calc(14rem / 16);
         padding: 0;
       }
+    }
+  }
+
+  .subscribe {
+    padding: 100px 320px;
+    text-align: center;
+
+    form {
+      gap: 16px;
+      width: 60%;
+      margin: 0 auto;
+
+      input {
+        height: 56px;
+        font-size: 1rem;
+        padding: 0px 30px;
+
+        &::placeholder {
+          opacity: 0.75;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    p {
+      width: 65%;
+      margin: 0 auto;
+    }
+  }
+  .footer-main {
+    width: 50%;
+    margin: 2rem auto;
+    padding: 0;
+
+    .logo {
+      width: 157px;
+      height: 44px;
+    }
+    .footer-menu {
+      gap: 4rem;
+      width: unset;
+    }
+
+    .icons {
+      gap: 1rem;
+      width: unset;
+    }
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+      font-weight: bold;
     }
   }
 }
