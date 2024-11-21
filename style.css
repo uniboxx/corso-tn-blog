@@ -27,10 +27,19 @@
 }
 
 .big {
-  font-size: calc(18rem / 16);
+  font-size: calc(13rem / 16);
+  @media screen and (min-width: 64rem) {
+    font-size: calc(18rem / 16);
+  }
 }
 .small {
-  font-size: 1rem;
+  font-size: calc(11.5rem / 16);
+  @media screen and (min-width: 64rem) {
+    font-size: 1rem;
+  }
+}
+.bold {
+  font-weight: bold;
 }
 
 body {
@@ -41,10 +50,10 @@ h1 {
   font-size: calc(36rem / 16);
 }
 h2 {
-  font-size: calc(52rem / 16);
+  font-size: 1.5rem;
 }
 h3 {
-  font-size: 3rem;
+  font-size: calc(20rem / 16);
 }
 h4 {
   font-size: 1.5rem;
@@ -105,12 +114,56 @@ p {
   border: none;
 }
 
-.btn-link {
+.btn.btn-link {
   color: var(--blue);
   background-color: unset;
   border: none;
   text-decoration: underline;
   align-self: start;
+  padding-left: 0;
+}
+
+.btn {
+  padding: 11.5px 30.5px;
+  font-family: 'Raleway', serif;
+}
+.btn-contact {
+  width: calc(180rem / 16);
+  height: calc(56rem / 16);
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.btn-more {
+  font-size: calc(10rem / 16);
+  width: calc(121rem / 16);
+  height: calc(38rem / 16);
+  background: #ffffff;
+  box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.09);
+  border-radius: 8px;
+  font-size: calc(13rem / 16);
+}
+.btn-get {
+  width: calc(166rem / 16);
+  height: calc(56rem / 16);
+  filter: drop-shadow(1px 1px 16px rgba(0, 0, 0, 0.09));
+}
+.btn-view {
+  width: calc(105rem / 16);
+  height: calc(38rem / 16);
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 6px;
+  font-size: calc(10rem / 16);
+}
+.btn-go {
+  width: calc(188rem / 16);
+  height: calc(56rem / 16);
+  background: #fafafa;
+  border-radius: 8px;
 }
 
 @media screen and (min-width: 64rem) {
@@ -189,6 +242,10 @@ header {
   .header-menu {
     width: 100%;
   }
+}
+
+.cards {
+  flex-direction: column;
 }
 
 .card {
@@ -292,25 +349,31 @@ header {
   }
 }
 
-.developer-row {
-  display: flex;
-  gap: 4rem;
-  margin-bottom: 2rem;
+.recent .card.first {
+  display: none;
+}
 
-  & > div {
-    flex: 1;
-  }
-
-  img {
-    width: 100%;
-  }
-
-  & .developer-text {
-    padding-top: 1rem;
+@media screen and (min-width: 64rem) {
+  .recent card.first {
     display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 2rem;
+    gap: 4rem;
+    margin-bottom: 2rem;
+
+    & > div {
+      flex: 1;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    & .developer-text {
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      gap: 2rem;
+    }
   }
 }
 
@@ -345,10 +408,8 @@ header {
   background-color: var(--blue);
   color: var(--white);
 
-  h6 {
+  h2 {
     text-align: center;
-    width: 80%;
-    margin: 0 auto;
   }
 
   form {
@@ -390,20 +451,31 @@ header {
   gap: 1rem;
   padding: 4rem 2rem;
   font-family: 'Raleway', serif;
+
+  .footer-menu {
+    width: unset;
+    padding: unset;
+    gap: 0.5rem;
+  }
 }
-footer {
+footer .footer-main {
   .icons {
     display: flex;
-    width: 50%;
-    margin: 0 auto;
     justify-content: space-between;
-    align-items: center;
+    width: unset;
+    margin: 0 auto;
+    gap: 1rem;
 
     .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4px;
       border-radius: 50%;
       background-color: var(--blue);
       color: var(--white);
-      padding: 4px;
+      width: calc(29rem / 16);
+      height: calc(29rem / 16);
     }
   }
 }
@@ -414,6 +486,7 @@ footer {
 }
 .copy {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 menu {
@@ -442,6 +515,7 @@ menu {
     min-width: 8rem;
   }
 }
+
 @media screen and (min-width: 64rem) {
   .sections-padding {
     padding: 40px 80px;
@@ -534,7 +608,9 @@ menu {
 
   .subscribe {
     padding: 100px 26%;
-    text-align: center;
+    h2 {
+      text-align: center;
+    }
 
     form {
       gap: 16px;
@@ -578,8 +654,6 @@ menu {
     }
     .icon {
       display: flex;
-      justify-content: center;
-      align-items: center;
       width: 40px;
       height: 40px;
       font-size: 1rem;
