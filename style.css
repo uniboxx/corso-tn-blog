@@ -354,10 +354,15 @@ header {
 }
 
 @media screen and (min-width: 64rem) {
-  .recent card.first {
+  .recent .card.first {
     display: flex;
     gap: 4rem;
     margin-bottom: 2rem;
+    flex-direction: row;
+
+    & .card-image {
+      width: 100%;
+    }
 
     & > div {
       flex: 1;
@@ -374,6 +379,15 @@ header {
       justify-content: start;
       gap: 2rem;
     }
+  }
+  .flex {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .popular .cards {
+    flex-direction: row;
+    gap: 2rem;
   }
 }
 
@@ -449,13 +463,12 @@ header {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 4rem 2rem;
+  padding: 4rem 0 2rem;
   font-family: 'Raleway', serif;
 
   .footer-menu {
     width: unset;
     padding: unset;
-    gap: 0.5rem;
   }
 }
 footer .footer-main {
@@ -501,8 +514,9 @@ menu {
   }
 }
 .footer-menu {
-  width: 80%;
+  width: unset;
   margin: 1rem auto;
+  gap: 2rem;
 }
 .nav-header {
   display: none;
