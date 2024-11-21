@@ -17,6 +17,17 @@
   --gray-medium: #666666;
   --gray-light: #999999;
   --white: #ffffff;
+
+  --tablet: 20rem;
+  --desktop: 64rem;
+}
+
+.gray-light {
+  color: var(--gray-light);
+}
+
+.big {
+  font-size: calc(18rem / 16);
 }
 
 body {
@@ -24,7 +35,7 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: calc(36rem / 16);
 }
 h2 {
   font-size: calc(52rem / 16);
@@ -33,7 +44,7 @@ h3 {
   font-size: 3rem;
 }
 h4 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 h5 {
   font-size: calc(26rem / 16);
@@ -48,32 +59,47 @@ p {
     font-size: calc(18rem / 16);
   }
   &.small {
-    font-size: 1rem;
-  }
-  &.smallest {
-    font-size: 0.75rem;
+    font-size: calc(12rem / 16);
   }
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1rem;
-  gap: 1rem;
-  margin-bottom: 1rem;
-
-  img {
-    width: 100%;
+@media screen and (min-width: 64rem) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: calc(52rem / 16);
+  }
+  h3 {
+    font-size: 3rem;
+  }
+  h4 {
+    font-size: 2rem;
+  }
+  h5 {
+    font-size: calc(26rem / 16);
   }
   h6 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
+  p {
+    line-height: 1.5;
 
-  p span,
-  p:last-of-type {
-    color: var(--gray-light);
+    &.big {
+      font-size: calc(18rem / 16);
+    }
+    &.small {
+      font-size: 1rem;
+    }
+
+    &.smallest {
+      font-size: calc(12rem / 16);
+    }
   }
+}
+
+.btn {
+  border: none;
 }
 
 .btn-link {
@@ -84,12 +110,46 @@ p {
   align-self: start;
 }
 
-.btn-blue {
-  background-color: var(--blue);
-  color: var(--white);
-  padding: 11px 16px;
-  border: none;
-  border-radius: 5px;
+@media screen and (min-width: 64rem) {
+  .btn {
+    padding: 16px 48px;
+    font-family: 'Raleway', serif;
+  }
+  .btn-contact {
+    width: calc(180rem / 16);
+    height: calc(56rem / 16);
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+
+  .btn-more {
+    width: calc(170rem / 16);
+    height: calc(53rem / 16);
+    background: #ffffff;
+    box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.09);
+    border-radius: 8px;
+  }
+  .btn-get {
+    width: calc(166rem / 16);
+    height: calc(56rem / 16);
+    filter: drop-shadow(1px 1px 16px rgba(0, 0, 0, 0.09));
+  }
+  .btn-view {
+    width: calc(147rem / 16);
+    height: calc(53rem / 16);
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 8px;
+  }
+  .btn-go {
+    width: calc(188rem / 16);
+    height: calc(56rem / 16);
+    background: #fafafa;
+    border-radius: 8px;
+  }
 }
 
 header {
@@ -123,6 +183,30 @@ header {
   #vector2 {
     top: 0;
   }
+  .header-menu {
+    width: 100%;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  img {
+    width: 100%;
+  }
+  h6 {
+    font-size: 1.25rem;
+  }
+
+  p span,
+  p:last-of-type {
+    color: var(--gray-light);
+  }
 }
 
 .hero {
@@ -135,7 +219,11 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 1rem;
+
+    @media screen and (min-width: 64rem) {
+      gap: 2rem;
+    }
 
     button {
       align-self: start;
@@ -201,19 +289,44 @@ header {
   }
 }
 
-.recent-text {
+.developer-row {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 2rem;
+
+  & > div {
+    flex: 1;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  & .developer-text {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 2rem;
+  }
+}
+
+.card-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.recent-header,
-.popular-header {
+.cards-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+}
+
+.card {
+  padding: 0;
 }
 
 .subscribe {
@@ -296,8 +409,6 @@ footer {
 }
 
 menu {
-  width: 80%;
-  margin: 1rem auto;
   display: flex;
   list-style: none;
   justify-content: space-between;
@@ -306,6 +417,10 @@ menu {
     font-size: 1rem;
     text-decoration: none;
   }
+}
+.footer-menu {
+  width: 80%;
+  margin: 1rem auto;
 }
 .nav-header {
   display: none;
@@ -318,7 +433,7 @@ menu {
     min-width: 8rem;
   }
 }
-@media screen and (min-width: 30rem) {
+@media screen and (min-width: 64rem) {
   .sections-padding {
     padding: 40px 80px;
   }
@@ -379,23 +494,22 @@ menu {
       background-color: white;
       padding: 30px;
       border-radius: 10px;
-
-      .smallest,
-      button {
-        font-size: 1rem;
-      }
     }
   }
 
-  .recent {
-    .recent-hero {
+  .cards {
+    @media screen and (min-width: 64rem) {
       display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-      .card {
-        .btn-link {
-          font-size: calc(14rem / 16);
-          padding: 0;
-        }
+    .card {
+      flex: 1;
+
+      .btn-link {
+        font-size: calc(14rem / 16);
+        padding: 0;
       }
     }
   }
